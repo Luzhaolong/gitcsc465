@@ -1,0 +1,26 @@
+---
+title: "csc465hw1Q7"
+author: "Zhaolong Lu"
+date: "January 12, 2016"
+output: html_document
+---
+Package
+```{r}
+library(ggplot2)
+```
+Load data
+```{r}
+setwd("~/Desktop/csc465/week1/HW-1-Data")
+data <- read.table('InfantData.csv',header = TRUE, sep=',')
+summary(data)
+```
+PlottingQa
+```{r}
+p_a <- ggplot(data,aes(Weight.lbs,Height.in))+ geom_point(aes(color = Sex,shape = Sex),size = 3)
+print(p_a)
+```
+PlottingQb
+```{r}
+p_b <- ggplot(data,aes(Height.in,Weight.lbs))+ geom_point(aes(color = Sex,shape = Sex),size = 3)+geom_smooth(aes(color=Sex),method='lm')
+print(p_b)
+```
